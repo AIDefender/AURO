@@ -1,0 +1,41 @@
+Namespace(model='KRUserRetention_NoSeq_Im', reader='MBRetentionDataReader')
+Namespace(attn_n_head=4, batch_size=128, cuda=0, data_separator=',', dropout_rate=0.1, enc_dim=32, epoch=1, item_meta_file='../dataset/kuairand/KuaiRand-Pure/data/video_features_basic_pure_fillna.csv', l2_coef=0.0, loss='ce', lr=1e-06, max_hist_seq_len=50, max_return_day=10, max_sess_seq_len=10, meta_file_sep=',', model_path='output/kuairand/env/user_KRUserRetention_NoSeq_Im_lr0.000001_reg0.model', n_worker=4, output_hidden_dims=[256, 64], retention_file='output/kuairand/env/sess_data/user_KRMBUserResponse_MaxOut_lr0.0001_reg0.csv', seed=19, test_batch_size=128, test_file='', test_holdout_per_user=1, train_file='../dataset/kuairand/KuaiRand-Pure/data/log_session_4_08_to_5_08_pure.csv', transformer_d_forward=64, transformer_n_layer=2, user_meta_file='../dataset/kuairand/KuaiRand-Pure/data/user_features_pure.csv', val_batch_size=128, val_file='', val_holdout_per_user=1)
+initiate KuaiRandMultiBehaior sequence reader
+initiate RetentionDataReader sequence reader
+Loading data files
+Load item meta data
+Load user meta data
+build vocab for onehot features
+build vocab for onehot features
+build vocab for multihot features:
+	tag
+sequence holdout for users (-1, 1, 1)
+Loading data files
+sequence holdout for users (-1, 1, 1)
+data statistics:
+ {'raw_data_size': 1231856, 'data_size': [1199880, 15988, 15988], 'n_user': 15988, 'n_item': 4765, 'max_seq_len': 50, 'user_features': ['user_active_degree', 'is_live_streamer', 'is_video_author', 'follow_user_num_range', 'fans_user_num_range', 'friend_user_num_range', 'register_days_range', 'onehot_feat0', 'onehot_feat1', 'onehot_feat6', 'onehot_feat9', 'onehot_feat10', 'onehot_feat11'], 'user_feature_dims': {'user_active_degree': 9, 'is_live_streamer': 2, 'is_video_author': 2, 'follow_user_num_range': 8, 'fans_user_num_range': 9, 'friend_user_num_range': 7, 'register_days_range': 8, 'onehot_feat0': 2, 'onehot_feat1': 7, 'onehot_feat6': 3, 'onehot_feat9': 7, 'onehot_feat10': 5, 'onehot_feat11': 5}, 'item_features': ['video_type', 'music_type', 'upload_type', 'tag'], 'item_feature_dims': {'video_type': 3, 'music_type': 6, 'upload_type': 14, 'tag': 47}, 'feedback_type': ['is_click', 'long_view', 'is_like', 'is_comment', 'is_forward', 'is_follow', 'is_hate'], 'feedback_size': 7, 'feedback_negative_sample_rate': {'is_click': 0.8417384933954295, 'long_view': 0.4871758344309378, 'is_like': 0.018557778490704575, 'is_comment': 0.00263792970133036, 'is_forward': 0.0008978257990446484, 'is_follow': 0.000895386080402745, 'is_hate': 0.00048568212348671036}, 'max_sess_len': 10, 'enc_dim': 96, 'max_return_day': 10}
+validation before training:
+Val result:
+{'loss': (2.1427796660808096, 2.10947322845459, 2.1788434982299805)}
+epoch 1 training
+Iteration 100, loss: 2.056376025676727
+Iteration 200, loss: 2.0254628586769106
+Iteration 300, loss: 1.992352923154831
+Iteration 400, loss: 1.9646181488037109
+Iteration 500, loss: 1.9339097034931183
+Iteration 600, loss: 1.9091551446914672
+Iteration 700, loss: 1.8798870503902436
+Iteration 800, loss: 1.8649035120010375
+Iteration 900, loss: 1.8423380506038667
+Iteration 1000, loss: 1.836197439432144
+Iteration 1100, loss: 1.8222385656833648
+Iteration 1200, loss: 1.8143027198314667
+Iteration 1300, loss: 1.8030742061138154
+Iteration 1400, loss: 1.7955074191093445
+Iteration 1500, loss: 1.792969561815262
+Iteration 1600, loss: 1.7868812787532806
+Epoch 1; time 242.0344
+epoch 1 validating
+Val result:
+{'loss': (1.9924386080942655, 1.9027535915374756, 2.0914528369903564)}
+Model (checkpoint) saved to output/kuairand_nips23/env/03_10_17_11_29/user_KRUserRetention_NoSeq_Im_lr0.000001_reg0.model.checkpoint
