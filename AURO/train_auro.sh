@@ -15,7 +15,7 @@ ENV_CLASS='KRCrossSessionEnvironment_GPU'
 MAX_SESSION=10
 TEMPER=10
 
-EXP_DEFAULT_NAME="adarec"
+EXP_DEFAULT_NAME="auro"
 EXP=${EXP:-$EXP_DEFAULT_NAME}
 
 # policy arguments
@@ -55,7 +55,7 @@ do
     
     mkdir -p ${output_path}/${file_key}/${date_key}/
 
-    python train_adarec.py\
+    python train_auro.py\
         --filename $0\
         --response_prob_high ${PROB_HIGH}\
         --response_prob_low ${PROB_LOW}\
